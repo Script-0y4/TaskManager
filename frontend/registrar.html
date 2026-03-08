@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="auth-container">
+<div class="auth-box">
+<h2>Crear Cuenta</h2>
+
+<form id="registerForm">
+<input type="text" id="registerName" placeholder="Nombre completo" required>
+<input type="email" id="registerEmail" placeholder="Correo electrónico" required>
+<input type="password" id="registerPassword" placeholder="Contraseña" required>
+<button type="submit">Registrarse</button>
+</form>
+
+<div class="auth-links">
+<a href="login.html">Volver al Login</a>
+</div>
+
+</div>
+</div>
+
+<script src="datos.js"></script>
+
+<script>
+
+async function registrar(){
+
+const nombre = document.getElementById("nombre").value;
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+if(!email.endsWith("@gmail.com")){
+alert("El correo debe ser @gmail.com");
+return;
+}
+
+await fetch("http://localhost:3000/registro",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body: JSON.stringify({
+nombre,
+email,
+password
+})
+});
+
+alert("Usuario registrado");
+
+window.location.href = "login.html";
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>TaskManager</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="appView" class="app-layout">
+
+<aside class="sidebar">
+
+<div class="logo">
+<h2>TaskManager</h2>
+</div>
+
+<nav>
+<ul>
+<li><a href="#">Dashboard</a></li>
+<li><a href="#">Tareas</a></li>
+<li><a href="#">Reportes</a></li>
+</ul>
+</nav>
+
+<div class="user-info">
+<p>Conectado como:</p>
+<strong id="currentUser"></strong>
+<button onclick="logout()">Cerrar sesión</button>
+</div>
+
+</aside>
+
+<main class="main-content">
+
+<header class="topbar">
+<h1>Panel de Gestión de Tareas</h1>
+</header>
+
+<section class="card create-task">
+<h3>Crear Nueva Tarea</h3>
+
+<div class="form-group">
+<input type="text" id="titulo" placeholder="Título de la tarea">
+<button onclick="crearTarea()">Crear</button>
+</div>
+
+</section>
+
+<section class="card">
+<div class="card-header">
+<h3>Lista de Tareas</h3>
+</div>
+
+<div id="listaTareas" class="task-grid"></div>
+
+</section>
+
+<section class="card">
+
+<div class="card-header">
+<h3>Reportes</h3>
+<button onclick="generarReporte()">Actualizar Reporte</button>
+</div>
+
+<div id="reporte" class="report-container"></div>
+
+</section>
+
+<footer class="footer">
+<p>© 2026 TaskManager</p>
+</footer>
+
+</main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
