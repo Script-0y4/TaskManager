@@ -8,13 +8,12 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host: "localhost",
-    port: 799,
-    user: "root",
-    password: "1234",
-    database: "taskmanager"
+    host: process.env.MYSQLHOST,
+    port: process.env.MYSQLPORT,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE
 });
-
 db.connect(err => {
     if(err){
         console.log("Error conectando a MySQL:", err);
@@ -203,6 +202,8 @@ completadas: completadas[0].completadas
 });
 
 
-app.listen(3000,()=>{
-console.log("Servidor corriendo en puerto 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT,()=>{
+console.log("Servidor corriendo en puerto", PORT);
 });
