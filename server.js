@@ -7,20 +7,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const db = mysql.createConnection({
-    host: process.env.MYSQLHOST,
-    port: process.env.MYSQLPORT,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE
-});
-db.connect(err => {
-    if(err){
-        console.log("Error conectando a MySQL:", err);
-    }else{
-        console.log("Conectado a MySQL");
-    }
-});
 
 
 app.post("/register", (req,res)=>{
